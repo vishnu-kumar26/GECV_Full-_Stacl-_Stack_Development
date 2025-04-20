@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript: Conditional,Loops,Functions
+  </title>
+  <style>
+     body { font-family: Arial, sans-serif; margin: 0px;
+    background-color: bisque;
+    text-align: center;
+    margin: 0 20% 0 ;
+
+
+
+ }
+    h2 { color: #420827; 
+        background-color: rgb(218, 63, 127);
+        border-radius: 20px;
+
+    }
+    pre { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+    .output { margin-bottom: 20px; }
+    h1{
+        color: rgb(11, 68, 65);
+        background-color: beige;
+        border: 2px solid black;box-shadow: 5px 10px #888888;
+
+    }
+    pre{
+        color: rgb(8, 84, 54);
+        background-color: burlywood;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        border: 2px solid black;
+        box-sizing: content-box;
+        
+    }
+    p{
+        color: blueviolet;
+    }
+    button{
+        color: #db5ddb;
+        background-color: rgb(118, 18, 71);
+        border-radius: 20px;
+        border: 5px solid ;
+    }
+    div{
+        border: 2px solid black;
+        margin-top: 20px;
+        border-radius: 5px;
+        background-color: rgb(236, 226, 212);
+        box-shadow: 5px 10px #888888;
+
+    }
+    input{
+        color: #0c070c;
+        background-color: rgb(181, 227, 212);
+        border: 2px solid rgb(141, 38, 129);
+        border-radius: 5px;
+    }
+    input::placeholder{
+        color: rgb(27, 8, 87);
+
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Function Demos</h1>
+
+  <!-- 1. Filter Negative Numbers -->
+  <div class="section">
+    <h2>1. Filter Out Negative Numbers</h2>
+    <input id="negInput" placeholder="Enter numbers separated by commas">
+    <button onclick="runFilter()">Filter</button>
+    <p id="negResult"></p>
+  </div>
+
+  <!-- 2. Difference from 13 -->
+  <div class="section">
+    <h2>2. Difference From 13</h2>
+    <input id="diffInput" type="number" placeholder="Enter a number">
+    <button onclick="runDiff()">Calculate</button>
+    <p id="diffResult"></p>
+  </div>
+
+  <!-- 3. Fibonacci Series -->
+  <div class="section">
+    <h2>3. Fibonacci Series</h2>
+    <input id="fibInput" type="number" placeholder="Enter number of terms">
+    <button onclick="runFibonacci()">Generate</button>
+    <p id="fibResult"></p>
+  </div>
+
+  <!-- 4. Sum of Multiples of 3 and 5 -->
+  <div class="section">
+    <h2>4. Sum of Multiples of 3 and 5 Under 1000</h2>
+    <button onclick="runSum()">Calculate</button>
+    <p id="sumResult"></p>
+  </div>
+
+  <!-- 5. Cube Using Function Object -->
+  <div class="section">
+    <h2>5. Cube of a Number (Function Object)</h2>
+    <input id="cubeInput" type="number" placeholder="Enter a number">
+    <button onclick="runCube()">Cube</button>
+    <p id="cubeResult"></p>
+  </div>
+
+  <script>
+    // 1. Filter out negative numbers
+    function runFilter() {
+      const input = document.getElementById("negInput").value;
+      const numbers = input.split(',').map(Number);
+      const result = numbers.filter(num => num >= 0);
+      document.getElementById("negResult").innerText = "Filtered: " + result.join(', ');
+    }
+
+    // 2. Difference from 13
+    function runDiff() {
+      const num = parseFloat(document.getElementById("diffInput").value);
+      const diff = Math.abs(num - 13);
+      const result = num > 13 ? diff * 2 : diff;
+      document.getElementById("diffResult").innerText = "Result: " + result;
+    }
+
+    // 3. Fibonacci series
+    function runFibonacci() {
+      const n = parseInt(document.getElementById("fibInput").value);
+      const fib = [0, 1];
+      for (let i = 2; i < n; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+      }
+      document.getElementById("fibResult").innerText = "Fibonacci: " + fib.slice(0, n).join(', ');
+    }
+
+    // 4. Sum of multiples of 3 and 5 under 1000
+    function runSum() {
+      let sum = 0;
+      for (let i = 0; i < 1000; i++) {
+        if (i % 3 === 0 || i % 5 === 0) {
+          sum += i;
+        }
+      }
+      document.getElementById("sumResult").innerText = "Sum: " + sum;
+    }
+
+    // 5. Cube using Function object
+    function runCube() {
+      const n = parseFloat(document.getElementById("cubeInput").value);
+      const cube = new Function("n", "return n * n * n;");
+      document.getElementById("cubeResult").innerText = "Cube: " + cube(n);
+    }
+  </script>
+
+</body>
+</html>

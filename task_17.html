@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript: Exception Handling</title>
+  <style>
+     body { font-family: Arial, sans-serif; margin: 0px;
+    background-color: bisque;
+    text-align: center;
+    margin: 0 20% 0 ;
+
+
+
+ }
+    h2 { color: #2fb50d; 
+        background-color: rgb(84, 11, 41);
+
+    }
+    p { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+    .output { margin-bottom: 20px; }
+    h1{
+        color: brown;
+        background-color: beige;
+        border: 2px solid black;
+
+    }
+    pre{
+        color: rgb(8, 84, 54);
+        background-color: burlywood;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        border: 2px solid black;
+        box-sizing: content-box;
+        
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    button {
+      margin: 5px 0;
+    }
+    .output {
+      color: darkblue;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Exception Handling Examples</h1>
+
+  <!-- 1. Handle Undeclared Variable Exception -->
+  <div class="section">
+    <h2>1. Undeclared Variable Error</h2>
+    <button onclick="handleUndeclared()">Run</button>
+    <p id="undeclaredResult" class="output"></p>
+  </div>
+
+  <!-- 2. Throw "Divide by Zero" Error -->
+  <div class="section">
+    <h2>2. Throw Divide by Zero Error</h2>
+    <button onclick="divideByZero(5, 0)">Divide 5 / 0</button>
+    <p id="divideResult" class="output"></p>
+  </div>
+
+  <!-- 3. Throw "Out of Bound" Error -->
+  <div class="section">
+    <h2>3. Throw Array Index Out of Bound Error</h2>
+    <button onclick="accessArray()">Access Invalid Index</button>
+    <p id="arrayResult" class="output"></p>
+  </div>
+
+  <!-- 4. Exception Handling using finally -->
+  <div class="section">
+    <h2>4. Try-Catch-Finally Example</h2>
+    <button onclick="testFinally()">Run Example</button>
+    <p id="finallyResult" class="output"></p>
+  </div>
+
+  <script>
+    // 1. Handle exception for undeclared variable
+    function handleUndeclared() {
+      try {
+        console.log(nonDeclaredVar); // variable not declared
+      } catch (err) {
+        document.getElementById("undeclaredResult").innerHTML = `<span class="error">Error:</span> ${err.message}`;
+      }
+    }
+
+    // 2. Throw divide by zero error
+    function divideByZero(a, b) {
+      try {
+        if (b === 0) {
+          throw new Error("Divide by Zero Error!");
+        }
+        let result = a / b;
+        document.getElementById("divideResult").innerText = "Result: " + result;
+      } catch (err) {
+        document.getElementById("divideResult").innerHTML = `<span class="error">Error:</span> ${err.message}`;
+      }
+    }
+
+    // 3. Throw out of bound error
+    function accessArray() {
+      try {
+        let arr = [10, 20, 30];
+        let index = 5;
+        if (index >= arr.length) {
+          throw new Error("Out of Bound Error!");
+        }
+        let value = arr[index];
+        document.getElementById("arrayResult").innerText = "Value: " + value;
+      } catch (err) {
+        document.getElementById("arrayResult").innerHTML = `<span class="error">Error:</span> ${err.message}`;
+      }
+    }
+
+    // 4. Use of finally block
+    function testFinally() {
+      let output = "";
+      try {
+        output += "Trying risky code...<br>";
+        let a = 10;
+        let b = 0;
+        if (b === 0) throw new Error("Oops! Division by zero.");
+        let result = a / b;
+        output += "Result: " + result;
+      } catch (err) {
+        output += `<span class="error">Caught:</span> ${err.message}<br>`;
+      } finally {
+        output += "Finally block executed.";
+      }
+      document.getElementById("finallyResult").innerHTML = output;
+    }
+  </script>
+
+</body>
+</html>

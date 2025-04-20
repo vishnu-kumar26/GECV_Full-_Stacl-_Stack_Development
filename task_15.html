@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript:Arrays</title>
+  <style>
+   body { font-family: Arial, sans-serif; margin: 0px;
+    background-color: bisque;
+    text-align: center;
+    margin: 0 20% 0 ;
+
+
+
+ }
+    h2 { color: #420827; 
+        background-color: rgb(218, 63, 127);
+
+    }
+    pre { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+    .output { margin-bottom: 20px; }
+    h1{
+        color: rgb(11, 68, 65);
+        background-color: beige;
+        border: 2px solid black;box-shadow: 5px 10px #888888;
+
+    }
+    pre{
+        color: rgb(8, 84, 54);
+        background-color: burlywood;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        border: 2px solid black;
+        box-sizing: content-box;
+        
+    }
+    p{
+        color: blueviolet;
+    }
+    button{
+        color: #db5ddb;
+        background-color: rgb(118, 18, 71);
+        border-radius: 20px;
+        border: 5px solid ;
+    }
+    div{
+        border: 2px solid black;
+        margin-top: 20px;
+        border-radius: 5px;
+        background-color: rgb(236, 226, 212);
+        box-shadow: 5px 10px #888888;
+
+    }
+    input{
+        color: #0c070c;
+        background-color: rgb(181, 227, 212);
+        border: 2px solid rgb(141, 38, 129);
+        border-radius: 5px;
+    }
+    input::placeholder{
+        color: rgb(27, 8, 87);
+
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Array Operations</h1>
+
+  <!-- 1. Sort an Array -->
+  <div class="section">
+    <h2>1. Sort Array</h2>
+    <input id="sortInput" placeholder="Enter array (e.g. 5,2,8,1)">
+    <button onclick="sortArray()">Sort</button>
+    <p id="sortResult"></p>
+  </div>
+
+  <!-- 2. Concatenate Two Arrays -->
+  <div class="section">
+    <h2>2. Concatenate Arrays</h2>
+    <input id="concatInput1" placeholder="Enter first array (e.g. 1,2,3)">
+    <input id="concatInput2" placeholder="Enter second array (e.g. 4,5,6)">
+    <button onclick="concatArrays()">Concatenate</button>
+    <p id="concatResult"></p>
+  </div>
+
+  <!-- 3. Remove First Element -->
+  <div class="section">
+    <h2>3. Remove First Element</h2>
+    <input id="removeInput" placeholder="Enter array (e.g. 9,8,7)">
+    <button onclick="removeFirstElement()">Remove First</button>
+    <p id="removeResult"></p>
+  </div>
+
+  <script>
+    // 1. Sort a JavaScript Array
+    function sortArray() {
+      const input = document.getElementById("sortInput").value;
+      const arr = input.split(',').map(Number);
+      arr.sort((a, b) => a - b); // Ascending order
+      document.getElementById("sortResult").innerText = "Sorted Array: " + arr.join(', ');
+    }
+
+    // 2. Concatenate two arrays
+    function concatArrays() {
+      const arr1 = document.getElementById("concatInput1").value.split(',').map(Number);
+      const arr2 = document.getElementById("concatInput2").value.split(',').map(Number);
+      const combined = arr1.concat(arr2);
+      document.getElementById("concatResult").innerText = "Concatenated Array: " + combined.join(', ');
+    }
+
+    // 3. Remove first element from array
+    function removeFirstElement() {
+      const input = document.getElementById("removeInput").value;
+      const arr = input.split(',').map(Number);
+      arr.shift(); // Removes the first element
+      document.getElementById("removeResult").innerText = "Updated Array: " + arr.join(', ');
+    }
+  </script>
+
+</body>
+</html>
