@@ -1,55 +1,105 @@
-
-
-<DOCTYPE html >
-    <html>
-    <head>
-    <title>HTML Froms</title>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Information Form</title>
     <style>
-    div {
-    height:500px;
-    width:500px;
-    background-color:yellow ;
-    padding:20px auto;
-    margin-left:50%;
-    padding:20px;
-    }
-    h1{ color:lvory; text-align:center; text-decoration:underline;}
-    
-    
-    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: bisque;
+        }
+        form {
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #22ee66;
+            border-radius: 8px;
+            background-color: #21a78e;
+            color: rgb(74, 74, 4);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 6px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .radio-group,
+        .checkbox-group {
+            margin-top: 5px;
+        }
+        .buttons {
+            margin-top: 15px;
+        }
+        .buttons input {
+            padding: 8px 16px;
+            margin-right: 10px;
+        }
     </style>
-    </head>
-    <body>
-    <div>
-    <h1> family details </h1>
-    <form>
-    <label for="fname">First Name: </label>
-    <input type="text" id="fname" name="fname"><br><br>
-    <label for="fname">Last Name: </label>
-    <input type="text" id="fname" name="fname"><br><br>
-    <label for="lname"> First Name:</label>
-    <input type="text" id="lname" name="lname"><br><br>
-    <label for="lname"> Last Name:</label>
-    <input type="text" id="lname" name="lname">
-    <h3><p>Choose Your Favourite fast food</p></h3>
-    <input type="radio" id="CHEESBURGER" name="favfast food" value="CHEESEBURGER">
-    <label for="CHEESBURGER"> CHEESBURGER</label><br>
-    <input type="radio" id="PIZZA" name="favfast food" value="PIZZA">
-    <label for="PIZZA"> PIZZA</label><br>
-    <input type="radio" id="KEBAB" name="favfast food" value="KEBAB">
-    <label for="KEBAB"> KEBAB</label><br>
-    <input type="radio" id="SODA" name="favfast food" value="SODA">
-    <label for="SODA"> SODA</label><br>
-    <input type="radio" id="NOODLES" name="favfast food" value="NOODLES">
-    <label for="NOODLES"> NOODLES</label>
-    
-    
-    
-    </form>
+</head>
+<body>
+
+<h2 style="text-align:center;">Basic Information Form</h2>
+
+<form>
+    <!-- Name -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <!-- Mobile No -->
+    <label for="mobile">Mobile No:</label>
+    <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="10-digit number" required>
+
+    <!-- Email -->
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required>
+
+    <!-- Gender -->
+    <label>Gender:</label>
+    <div class="radio-group">
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male" style="display:inline;">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female" style="display:inline;">Female</label>
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other" style="display:inline;">Other</label>
     </div>
-    
-    
-    
-    
-    </body>
-    </html>b
+
+    <!-- Education -->
+    <label>Education Done:</label>
+    <div class="checkbox-group">
+        <input type="checkbox" id="highschool" name="education" value="High School">
+        <label for="highschool" style="display:inline;">High School</label><br>
+        <input type="checkbox" id="bachelors" name="education" value="Bachelor's">
+        <label for="bachelors" style="display:inline;">Bachelor's</label><br>
+        <input type="checkbox" id="masters" name="education" value="Master's">
+        <label for="masters" style="display:inline;">Master's</label><br>
+        <input type="checkbox" id="phd" name="education" value="PhD">
+        <label for="phd" style="display:inline;">PhD</label>
+    </div>
+
+    <!-- Tea Preference -->
+    <label for="tea">Do you like tea?</label>
+    <select id="tea" name="tea">
+        <option value="">--Select an option--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="Sometimes">Sometimes</option>
+    </select>
+
+    <!-- Buttons -->
+    <div class="buttons">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </div>
+</form>
+
+</body>
+</html>
